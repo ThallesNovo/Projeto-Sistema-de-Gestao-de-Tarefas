@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { listarProjetos, criarProjeto } from "../services/projetos";
+import { listarProjetos, criarProjeto, atualizarProjeto, excluirProjeto } from "../services/projetos";
 
 function Projetos() {
   const [projetos, setProjetos] = useState([]);
@@ -9,6 +9,10 @@ function Projetos() {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [enviando, setEnviando] = useState(false);
+
+  const [editandoId, setEditandoId] = useState(null);
+  const [editNome, setEditNome] = useState("");
+  const [editDescricao, setEditDescricao] = useState("");
 
   async function carregar() {
     try {
@@ -39,6 +43,42 @@ function Projetos() {
       console.error(err);
     } finally {
       setEnviando(false);
+    }
+  }
+
+  async function handleExcluir(id) {
+    const confirmar = window.confirm("Tem certeza que deseja excluir este projeto?");
+    if (!confirmar) return;
+    try {
+      await excluirProjeto(id);
+      await carregar();
+    } catch (err) {
+      alert("Erro ao excluir projeto.");
+      console.error(err);
+    }
+  }
+
+  function handleIniciarEdicao(projeto) {
+    setEditandoId(projeto.id);
+    setEditNome(projeto.nome);
+    setEditDescricao(projeto.descricao);
+  }
+
+  function handleCancelarEdicao() {
+    setEditandoId(null);
+  }
+
+  async function handleSalvarEdicao(id) {
+    try {
+      await atualizarProjeto(id, {
+        nome: editNome,
+        descricao: editDescricao,
+      });
+      setEditandoId(null);
+      await carregar();
+    } catch (err) {
+      alert("Erro ao editar projeto.");
+      console.error(err);
     }
   }
 
@@ -79,7 +119,32 @@ function Projetos() {
       <ul>
         {projetos.map((projeto) => (
           <li key={projeto.id}>
-            <strong>{projeto.nome}</strong> — {projeto.descricao}
+            {editandoId === projeto.id ? (
+              <div>
+                <input
+                  type="text"
+                  value={editNome}
+                  onChange={(e) => setEditNome(e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={editDescricao}
+                  onChange={(e) => setEditDescricao(e.target.value)}
+                />
+                <button onClick={() => handleSalvarEdicao(projeto.id)}>Salvar</button>
+                <button onClick={handleCancelarEdicao}>Cancelar</button>
+              </div>
+            ) : (
+              <>
+                <span>
+                  <strong>{projeto.nome}</strong> — {projeto.descricao}
+                </span>
+                <span>
+                  <button onClick={() => handleIniciarEdicao(projeto)}>Editar</button>
+                  <button onClick={() => handleExcluir(projeto.id)}>Excluir</button>
+                </span>
+              </>
+            )}
           </li>
         ))}
       </ul>
