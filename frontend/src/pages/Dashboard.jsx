@@ -41,7 +41,11 @@ function Dashboard() {
     <div className="dashboard">
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h1>Dashboard</h1>
-        <button onClick={handleLogout}>Sair</button>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button onClick={() => navigate("/tarefas")}>Tarefas</button>
+          <button onClick={() => navigate("/projetos")}>Projetos</button>
+          <button onClick={handleLogout}>Sair</button>
+        </div>
       </div>
 
       <div className="cards">
