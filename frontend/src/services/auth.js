@@ -5,6 +5,11 @@ export async function login(email, senha) {
   return response.data;
 }
 
+export async function cadastrar(nome, email, senha) {
+  const response = await api.post("/usuarios/", { nome, email, senha });
+  return response.data;
+}
+
 export function logout() {
   localStorage.removeItem("token");
 }
