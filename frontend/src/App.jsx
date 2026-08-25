@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BoasVindas from "./pages/BoasVindas";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Dashboard from "./pages/Dashboard";
@@ -10,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Cadastro />} />
+        <Route path="/" element={<BoasVindas />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route
