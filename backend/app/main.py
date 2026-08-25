@@ -8,7 +8,10 @@ app = FastAPI(title="API de Gestão de Tarefas")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+allow_origins=[
+    "http://localhost:5173",
+    "https://projeto-sistema-de-gestao-de-tarefa.vercel.app",
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
