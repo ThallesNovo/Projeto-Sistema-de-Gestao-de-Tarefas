@@ -1,0 +1,122 @@
+.tarefas-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #ffffff;
+}
+
+.tarefas-container h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.tarefas-form {
+  background-color: #161b22;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.tarefas-form > div {
+  margin-bottom: 12px;
+}
+
+.tarefas-form label {
+  display: block;
+  color: #c9d1d9;
+  margin-bottom: 4px;
+}
+
+.tarefas-form input,
+.tarefas-form select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #30363d;
+  background-color: #0d1117;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.tarefas-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: none;
+  background-color: #238636;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tarefas-form button:hover {
+  background-color: #2ea043;
+}
+
+.tarefas-filtros {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #161b22;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.tarefas-filtros label {
+  color: #c9d1d9;
+  margin-right: 4px;
+}
+
+.tarefas-filtros select,
+.tarefas-filtros input {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #30363d;
+  background-color: #0d1117;
+  color: #ffffff;
+}
+
+.tarefas-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.tarefa-item {
+  background-color: #161b22;
+  padding: 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tarefa-item strong {
+  color: #ffffff;
+}
+
+.tarefa-item .tarefa-botoes button {
+  margin-left: 6px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.btn-concluir {
+  background-color: #238636;
+}
+
+.btn-excluir {
+  background-color: #da3633;
+}
+
+.btn-editar {
+  background-color: #1f6feb;
+}
