@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { listarTarefas, criarTarefa, excluirTarefa, atualizarTarefa } from "../services/tarefas";
 import { listarProjetos } from "../services/projetos";
 import "./Tarefas.css";
+import { useNavigate } from "react-router-dom";
 
 function Tarefas() {
+  const navigate = useNavigate();
   const [tarefas, setTarefas] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState("");
@@ -126,6 +128,11 @@ async function handleSalvarEdicao(id) {
  return (
   <div className="tarefas-container">
     <h1>Minhas Tarefas</h1>
+    <p>
+      <span style={{ cursor: "pointer", color: "#4caf50" }} onClick={() => navigate("/dashboard")}>
+        ← Voltar ao Dashboard
+      </span>
+    </p>
 
     <form onSubmit={handleCriar} className="tarefas-form">
       <div>

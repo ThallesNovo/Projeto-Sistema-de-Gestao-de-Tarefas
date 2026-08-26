@@ -65,6 +65,7 @@ function Cadastro() {
           {sucesso && <p style={{ color: "green" }}>Cadastro feito! Redirecionando...</p>}
           <button type="submit">Cadastrar</button>
         </form>
+        <p style={{ marginTop: "10px", textAlign: "center" }}> <span style={{ cursor: "pointer", color: "#4caf50" }} onClick={() => navigate("/")}> ← Voltar </span> </p>
       </div>
     </div>
   );

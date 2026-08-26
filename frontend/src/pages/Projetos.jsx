@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { listarProjetos, criarProjeto, atualizarProjeto, excluirProjeto } from "../services/projetos";
+import { useNavigate } from "react-router-dom";
 
 function Projetos() {
+  const navigate = useNavigate();
   const [projetos, setProjetos] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState("");
@@ -88,6 +90,11 @@ function Projetos() {
   return (
     <div>
       <h1>Meus Projetos</h1>
+      <p>
+        <span style={{ cursor: "pointer", color: "#4caf50" }} onClick={() => navigate("/dashboard")}>
+         ← Voltar ao Dashboard
+        </span>
+      </p>
 
       <form onSubmit={handleCriar}>
         <div>
