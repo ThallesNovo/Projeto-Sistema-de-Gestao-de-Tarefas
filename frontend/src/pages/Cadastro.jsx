@@ -5,6 +5,7 @@ import "./Login.css";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
+  const [sobrenome, setSobrenome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
@@ -22,7 +23,7 @@ function Cadastro() {
     } 
 
     try {
-      await cadastrar(nome, email, senha);
+      await cadastrar(nome, sobrenome, email, senha);
       setSucesso(true);
       setTimeout(() => navigate("/login"), 1500);
     } catch (err) {
@@ -48,7 +49,16 @@ function Cadastro() {
               onChange={(e) => setNome(e.target.value)}
               required
             />
-          </div>
+             </div>
+             <div>
+               <label>Sobrenome</label>
+               <input
+                 type="text"
+                 value={sobrenome}
+                 onChange={(e) => setSobrenome(e.target.value)}
+                 required
+               />
+             </div>       
           <div>
             <label>Email</label>
             <input

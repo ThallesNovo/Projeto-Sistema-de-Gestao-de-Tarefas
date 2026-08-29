@@ -15,6 +15,7 @@ def criar_usuario(usuario: schemas.UsuarioCriar, db: Session = Depends(get_db)):
 
     novo_usuario = models.Usuario(
         nome=usuario.nome,
+        sobrenome=usuario.sobrenome,
         email=usuario.email,
         senha_hash=hash_senha(usuario.senha),
     )

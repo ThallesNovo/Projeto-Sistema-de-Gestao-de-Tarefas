@@ -7,6 +7,7 @@ from datetime import datetime
 
 class UsuarioBase(BaseModel):
     nome: str
+    sobrenome: str
     email: EmailStr
 
 
