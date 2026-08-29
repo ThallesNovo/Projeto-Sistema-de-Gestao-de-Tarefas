@@ -15,6 +15,12 @@ function Cadastro() {
     e.preventDefault();
     setErro("");
 
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailValido) {
+     setErro("Por favor, insira um e-mail válido.");
+     return;
+    } 
+
     try {
       await cadastrar(nome, email, senha);
       setSucesso(true);

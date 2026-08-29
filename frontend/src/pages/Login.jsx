@@ -13,6 +13,12 @@ function Login() {
     e.preventDefault();
     setErro("");
 
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailValido) {
+     setErro("Por favor, insira um e-mail válido.");
+     return;
+    }
+
     try {
       const data = await login(email, senha);
       localStorage.setItem("token", data.access_token);   // ← já existia
