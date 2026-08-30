@@ -13,3 +13,13 @@ export async function cadastrar(nome, sobrenome, email, senha) {
 export function logout() {
   localStorage.removeItem("token");
 }
+
+export async function esqueciSenha(email) {
+  const response = await api.post("/esqueci-senha", { email });
+  return response.data;
+}
+
+export async function redefinirSenha(token, novaSenha) {
+  const response = await api.post("/redefinir-senha", { token, nova_senha: novaSenha });
+  return response.data;
+}

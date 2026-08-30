@@ -14,8 +14,13 @@ class Usuario(Base):
     senha_hash = Column(String, nullable=False)
     criado_em = Column(DateTime(timezone=True), server_default=func.now())
 
-    projetos = relationship("Projeto", back_populates="dono")
+    is_verified = Column(Boolean, default=False)
+    verification_token = Column(String, nullable=True)
+    reset_token = Column(String, nullable=True)
+    reset_token_expira = Column(DateTime, nullable=True)
 
+    projetos = relationship("Projeto", back_populates="dono")
+    
 
 class Projeto(Base):
     __tablename__ = "projetos"

@@ -28,6 +28,14 @@ class LoginSchema(BaseModel):
     senha: str
 
 
+class EmailSchema(BaseModel):
+    email: EmailStr
+
+
+class RedefinirSenhaSchema(BaseModel):
+    token: str
+    nova_senha: str
+
 # ---------- Tarefa ----------
 
 class TarefaBase(BaseModel):

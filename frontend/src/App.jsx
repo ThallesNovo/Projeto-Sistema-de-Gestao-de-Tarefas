@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard";
 import Tarefas from "./pages/Tarefas";
 import Projetos from "./pages/Projetos";
 import RotaProtegida from "./components/RotaProtegida";
+import EsqueciSenha from "./pages/EsqueciSenha";
+import RedefinirSenha from "./pages/RedefinirSenha";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<BoasVindas />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/esqueci-senha" element={<EsqueciSenha />} />
+        <Route path="/redefinir-senha" element={<RedefinirSenha />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route
           path="/dashboard"
