@@ -54,8 +54,19 @@ function Login() {
         {erro && <p className="erro">{erro}</p>}
         <button type="submit">Entrar</button>
       </form>
-      <p style={{ marginTop: "10px", textAlign: "center" }}> <span style={{ cursor: "pointer", color: "#4caf50" }} onClick={() => navigate("/")}> ← Voltar </span> </p>
-      </div>
+
+      <p style={{ marginTop: "10px", textAlign: "center" }}>
+        <span style={{ cursor: "pointer", color: "#4caf50" }} onClick={() => navigate("/esqueci-senha")}>
+          Esqueci minha senha
+        </span>
+      </p>
+
+       <p style={{ marginTop: "10px", textAlign: "center" }}> 
+         <span style={{ cursor: "pointer", color: "■#4caf50" }} onClick={() => navigate("/")}>
+           ← Voltar 
+         </span>
+       </p>
+     </div>
     </div>
   );
 }
